@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDEs and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local environment files
+.env
+.env.*
+
+# Build and packaging
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+logs/*.csv
+
+# Datasets
+data/
+
+# Generated results
+results/batch/
+results/single/
+results/validation/
+results/UIEB/
+results/RUIE/
+results/LSUI/
+results/enhanced_validation/
+results/training_curves.png
+resultsVal/
+results3/
+
+# Checkpoints
+checkpoints/model_best.pth
+checkpoints/model_epoch_*.pth
+
+# Archives
+*.zip
+*.rar
+*.tar
+*.tar.gz
+*.7z
