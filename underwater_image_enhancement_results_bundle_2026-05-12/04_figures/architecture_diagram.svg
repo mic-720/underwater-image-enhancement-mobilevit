@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1880" height="980" viewBox="0 0 1880 980">
+<rect width="1880" height="980" fill="#eef7fb"/>
+<text x="940.0" y="50" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="30" font-weight="700" fill="#13304d">Exact EnhancementCNN Architecture</text>
+<text x="940.0" y="80" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="15" font-weight="400" fill="#35516a">Source: models/cnn_model.py   |   IMAGE_SIZE=256   |   MOBILEVIT_DIM=64   |   MOBILEVIT_DEPTH=2   |   MOBILEVIT_HEADS=2   |   Params=321,859</text>
+<rect x="40" y="150" width="190" height="120" rx="18" ry="18" fill="#dfeffc" stroke="#17324d" stroke-width="2"/>
+<text x="135.0" y="180" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="18" font-weight="700" fill="#183147">Input x / residual</text>
+<text x="135.0" y="214" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">Tensor: 3 x 256 x 256</text>
+<text x="135.0" y="234" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">Saved as residual = x</text>
+<text x="135.0" y="254" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">Feeds enc1 and final add</text>
+<rect x="290" y="120" width="290" height="180" rx="18" ry="18" fill="#9ed8e6" stroke="#17324d" stroke-width="2"/>
+<text x="435.0" y="150" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="18" font-weight="700" fill="#183147">self.enc1</text>
+<text x="435.0" y="184" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">conv_block(3 -&gt; 32)</text>
+<text x="435.0" y="204" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">enc1[0]: Conv2d 3 -&gt; 32, k=3, p=1</text>
+<text x="435.0" y="224" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">enc1[1]: BatchNorm2d(32), ReLU</text>
+<text x="435.0" y="244" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">enc1[3]: Conv2d 32 -&gt; 32, k=3, p=1</text>
+<text x="435.0" y="264" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">enc1[4]: BatchNorm2d(32), ReLU</text>
+<text x="435.0" y="284" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">e1: 32 x 256 x 256</text>
+<rect x="640" y="155" width="160" height="110" rx="18" ry="18" fill="#dcecf3" stroke="#17324d" stroke-width="2"/>
+<text x="720.0" y="185" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="18" font-weight="700" fill="#183147">self.pool</text>
+<text x="720.0" y="219" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">MaxPool2d</text>
+<text x="720.0" y="239" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">kernel_size=2, stride=2</text>
+<text x="720.0" y="259" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">pool(e1): 32 x 128 x 128</text>
+<rect x="860" y="120" width="290" height="180" rx="18" ry="18" fill="#8ed0dc" stroke="#17324d" stroke-width="2"/>
+<text x="1005.0" y="150" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="18" font-weight="700" fill="#183147">self.enc2</text>
+<text x="1005.0" y="184" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">conv_block(32 -&gt; 64)</text>
+<text x="1005.0" y="204" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">enc2[0]: Conv2d 32 -&gt; 64, k=3, p=1</text>
+<text x="1005.0" y="224" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">enc2[1]: BatchNorm2d(64), ReLU</text>
+<text x="1005.0" y="244" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">enc2[3]: Conv2d 64 -&gt; 64, k=3, p=1</text>
+<text x="1005.0" y="264" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">enc2[4]: BatchNorm2d(64), ReLU</text>
+<text x="1005.0" y="284" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">e2: 64 x 128 x 128</text>
+<rect x="1210" y="155" width="160" height="110" rx="18" ry="18" fill="#dcecf3" stroke="#17324d" stroke-width="2"/>
+<text x="1290.0" y="185" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="18" font-weight="700" fill="#183147">self.pool</text>
+<text x="1290.0" y="219" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">MaxPool2d</text>
+<text x="1290.0" y="239" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">kernel_size=2, stride=2</text>
+<text x="1290.0" y="259" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">pool(e2): 64 x 64 x 64</text>
+<rect x="1430" y="90" width="400" height="240" rx="18" ry="18" fill="#ffd58f" stroke="#17324d" stroke-width="2"/>
+<text x="1630.0" y="120" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="18" font-weight="700" fill="#183147">self.bottleneck</text>
+<text x="1630.0" y="154" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">MobileViTBlock(dim=64, depth=2, heads=2)</text>
+<text x="1630.0" y="174" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">local_conv: Conv2d 64 -&gt; 64, k=3, p=1</text>
+<text x="1630.0" y="194" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">flatten: (B, 64, 64, 64) -&gt; (B, 4096, 64)</text>
+<text x="1630.0" y="214" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">transformer: TransformerEncoder x 2</text>
+<text x="1630.0" y="234" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">each layer: nhead=2, FFN 64 -&gt; 128 -&gt; 64</text>
+<text x="1630.0" y="254" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">dropout=0.1, batch_first=True, norm_first=True</text>
+<text x="1630.0" y="274" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">proj_conv: Conv2d 64 -&gt; 64, k=1</text>
+<text x="1630.0" y="294" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">internal residual: return x + identity</text>
+<text x="1630.0" y="314" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">b: 64 x 64 x 64</text>
+<rect x="1440" y="410" width="180" height="130" rx="18" ry="18" fill="#f7ead0" stroke="#17324d" stroke-width="2"/>
+<text x="1530.0" y="440" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="18" font-weight="700" fill="#183147">F.interpolate</text>
+<text x="1530.0" y="474" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">d1 upsample</text>
+<text x="1530.0" y="494" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">scale_factor=2</text>
+<text x="1530.0" y="514" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">mode=&quot;bilinear&quot;</text>
+<text x="1530.0" y="534" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">align_corners=False</text>
+<text x="1530.0" y="554" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">64 x 128 x 128</text>
+<rect x="1080" y="390" width="300" height="170" rx="18" ry="18" fill="#b8e3b0" stroke="#17324d" stroke-width="2"/>
+<text x="1230.0" y="420" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="18" font-weight="700" fill="#183147">torch.cat + self.dec1</text>
+<text x="1230.0" y="454" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">cat([d1, e2], dim=1)</text>
+<text x="1230.0" y="474" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">64 + 64 = 128 channels</text>
+<text x="1230.0" y="494" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">dec1 = conv_block(128 -&gt; 64)</text>
+<text x="1230.0" y="514" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">Conv2d 128 -&gt; 64, BN, ReLU</text>
+<text x="1230.0" y="534" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">Conv2d 64 -&gt; 64, BN, ReLU</text>
+<text x="1230.0" y="554" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">d1: 64 x 128 x 128</text>
+<rect x="970" y="650" width="180" height="130" rx="18" ry="18" fill="#f7ead0" stroke="#17324d" stroke-width="2"/>
+<text x="1060.0" y="680" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="18" font-weight="700" fill="#183147">F.interpolate</text>
+<text x="1060.0" y="714" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">d2 upsample</text>
+<text x="1060.0" y="734" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">scale_factor=2</text>
+<text x="1060.0" y="754" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">mode=&quot;bilinear&quot;</text>
+<text x="1060.0" y="774" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">align_corners=False</text>
+<text x="1060.0" y="794" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">64 x 256 x 256</text>
+<rect x="610" y="625" width="300" height="175" rx="18" ry="18" fill="#c9ebb8" stroke="#17324d" stroke-width="2"/>
+<text x="760.0" y="655" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="18" font-weight="700" fill="#183147">torch.cat + self.dec2</text>
+<text x="760.0" y="689" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">cat([d2, e1], dim=1)</text>
+<text x="760.0" y="709" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">64 + 32 = 96 channels</text>
+<text x="760.0" y="729" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">dec2 = conv_block(96 -&gt; 32)</text>
+<text x="760.0" y="749" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">Conv2d 96 -&gt; 32, BN, ReLU</text>
+<text x="760.0" y="769" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">Conv2d 32 -&gt; 32, BN, ReLU</text>
+<text x="760.0" y="789" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">d2: 32 x 256 x 256</text>
+<rect x="370" y="660" width="170" height="105" rx="18" ry="18" fill="#efe3f8" stroke="#17324d" stroke-width="2"/>
+<text x="455.0" y="690" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="18" font-weight="700" fill="#183147">self.final_conv</text>
+<text x="455.0" y="724" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">Conv2d 32 -&gt; 3</text>
+<text x="455.0" y="744" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">kernel_size=1</text>
+<text x="455.0" y="764" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">out: 3 x 256 x 256</text>
+<rect x="240" y="660" width="100" height="105" rx="18" ry="18" fill="#f7d7d7" stroke="#17324d" stroke-width="2"/>
+<text x="290.0" y="690" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="18" font-weight="700" fill="#183147">Residual Add</text>
+<text x="290.0" y="724" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">out + residual</text>
+<text x="290.0" y="744" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">global output-level skip</text>
+<text x="290.0" y="764" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">3 x 256 x 256</text>
+<rect x="90" y="660" width="110" height="105" rx="18" ry="18" fill="#e6eefc" stroke="#17324d" stroke-width="2"/>
+<text x="145.0" y="690" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="18" font-weight="700" fill="#183147">torch.sigmoid</text>
+<text x="145.0" y="724" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">applied after add</text>
+<text x="145.0" y="744" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">range [0, 1]</text>
+<text x="145.0" y="764" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">3 x 256 x 256</text>
+<rect x="40" y="820" width="190" height="95" rx="18" ry="18" fill="#d8f1de" stroke="#17324d" stroke-width="2"/>
+<text x="135.0" y="850" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="18" font-weight="700" fill="#183147">Enhanced Output</text>
+<text x="135.0" y="884" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">network prediction</text>
+<text x="135.0" y="904" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#183147">3 x 256 x 256</text>
+<line x1="230" y1="210" x2="290" y2="210" stroke="#21435f" stroke-width="4"/>
+<polygon points="290,210 276,203 276,217" fill="#21435f"/>
+<text x="260.0" y="198" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" fill="#35516a">3 x 256 x 256</text>
+<line x1="580" y1="210" x2="640" y2="210" stroke="#21435f" stroke-width="4"/>
+<polygon points="640,210 626,203 626,217" fill="#21435f"/>
+<text x="610.0" y="198" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" fill="#35516a">32 x 256 x 256</text>
+<line x1="800" y1="210" x2="860" y2="210" stroke="#21435f" stroke-width="4"/>
+<polygon points="860,210 846,203 846,217" fill="#21435f"/>
+<text x="830.0" y="198" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" fill="#35516a">32 x 128 x 128</text>
+<line x1="1150" y1="210" x2="1210" y2="210" stroke="#21435f" stroke-width="4"/>
+<polygon points="1210,210 1196,203 1196,217" fill="#21435f"/>
+<text x="1180.0" y="198" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" fill="#35516a">64 x 128 x 128</text>
+<line x1="1370" y1="210" x2="1430" y2="210" stroke="#21435f" stroke-width="4"/>
+<polygon points="1430,210 1416,203 1416,217" fill="#21435f"/>
+<text x="1400.0" y="198" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" fill="#35516a">64 x 64 x 64</text>
+<line x1="1630" y1="330" x2="1530" y2="410" stroke="#21435f" stroke-width="4"/>
+<polygon points="1530,410 1544,403 1544,417" fill="#21435f"/>
+<line x1="1440" y1="475" x2="1380" y2="475" stroke="#21435f" stroke-width="4"/>
+<polygon points="1380,475 1394,468 1394,482" fill="#21435f"/>
+<text x="1410.0" y="463" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" fill="#35516a">64 x 128 x 128</text>
+<line x1="1230" y1="560" x2="1060" y2="650" stroke="#21435f" stroke-width="4"/>
+<polygon points="1060,650 1074,643 1074,657" fill="#21435f"/>
+<line x1="970" y1="715" x2="910" y2="715" stroke="#21435f" stroke-width="4"/>
+<polygon points="910,715 924,708 924,722" fill="#21435f"/>
+<text x="940.0" y="703" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" fill="#35516a">64 x 256 x 256</text>
+<line x1="610" y1="715" x2="540" y2="715" stroke="#21435f" stroke-width="4"/>
+<polygon points="540,715 554,708 554,722" fill="#21435f"/>
+<text x="575.0" y="703" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" fill="#35516a">32 x 256 x 256</text>
+<line x1="370" y1="715" x2="340" y2="715" stroke="#21435f" stroke-width="4"/>
+<polygon points="340,715 354,708 354,722" fill="#21435f"/>
+<text x="355.0" y="703" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" fill="#35516a">3 x 256 x 256</text>
+<line x1="240" y1="715" x2="200" y2="715" stroke="#21435f" stroke-width="4"/>
+<polygon points="200,715 214,708 214,722" fill="#21435f"/>
+<line x1="145" y1="765" x2="145" y2="820" stroke="#21435f" stroke-width="4"/>
+<polygon points="145,820 138,806 152,806" fill="#21435f"/>
+<polyline points="1150,290 1530,290 1530,410" fill="none" stroke="#c85c5c" stroke-width="4"/>
+<polygon points="1530,410 1523,396 1537,396" fill="#c85c5c"/>
+<text x="1340" y="317" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" fill="#c85c5c">Skip: e2 -&gt; cat([d1, e2], dim=1)</text>
+<polyline points="580,285 1060,285 1060,650" fill="none" stroke="#c85c5c" stroke-width="4"/>
+<polygon points="1060,650 1053,636 1067,636" fill="#c85c5c"/>
+<text x="845" y="312" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" fill="#c85c5c">Skip: e1 -&gt; cat([d2, e1], dim=1)</text>
+<polyline points="80,270 80,715 240,715" fill="none" stroke="#7a3db8" stroke-width="4"/>
+<polygon points="240,715 226,708 226,722" fill="#7a3db8"/>
+<text x="150" y="633" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" fill="#7a3db8">Global residual: residual = x</text>
+<rect x="280" y="835" width="1550" height="105" rx="16" ry="16" fill="#ffffff" stroke="#bfd3df" stroke-width="2"/>
+<text x="1055" y="864" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="15" font-weight="700" fill="#183147">Forward: x -&gt; enc1 -&gt; pool -&gt; enc2 -&gt; pool -&gt; bottleneck -&gt; upsample -&gt; cat with e2 -&gt; dec1 -&gt; upsample -&gt; cat with e1 -&gt; dec2 -&gt; final_conv -&gt; out + residual -&gt; sigmoid</text>
+<text x="1055" y="894" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#35516a">Red paths are U-Net-style skip connections. Purple path is the separate global residual used by EnhancementCNN.forward().</text>
+<text x="1055" y="920" text-anchor="middle" font-family="Arial, DejaVu Sans, sans-serif" font-size="14" font-weight="400" fill="#35516a">Bottleneck also has its own internal residual: MobileViTBlock returns x + identity after proj_conv.</text>
+</svg>
