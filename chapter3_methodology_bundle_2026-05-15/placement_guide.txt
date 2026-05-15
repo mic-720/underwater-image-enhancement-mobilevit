@@ -1,0 +1,15 @@
+Recommended placement for Chapter 3 Methodologies
+============================================================
+
+After the introductory paragraph of Chapter 3:
+- Insert Figure 3.1 Proposed Methodology Flowchart
+
+Inside Section 3.1.1 Convolutional Neural Network (CNN):
+- Insert Figure 3.2 CNN model architecture
+
+Near the end of Section 3.1 Deep Learning Algorithms or after 3.1.3:
+- Insert Table 3.1 CNN, RNN, LSTM comparison
+- Insert Figure 3.4 Methodology suitability summary
+
+Before the closing paragraph of Chapter 3:
+- Insert Figure 3.3 Training and validation pipeline
