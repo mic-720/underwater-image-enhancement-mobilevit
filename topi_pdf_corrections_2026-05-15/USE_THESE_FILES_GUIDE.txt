@@ -1,0 +1,55 @@
+topi.pdf Correction Package Usage Guide
+======================================
+
+This package has now been separated into two practical folders:
+
+1. Use_in_System_Analysis
+2. Use_in_Results
+
+Use_in_System_Analysis
+----------------------
+These files are the ones you should use in the System Analysis chapter.
+They explain the dataset and preprocessing pipeline and are not heavily result-based.
+
+Included here:
+- Table_4_1_dataset_summary.csv
+- Table_4_1_dataset_summary.txt
+- figure_captions.txt
+- placement_guide.txt
+- Page_3_Figure_4_1_sample_degraded_images.png
+- Page_5_Figure_4_2_preprocessing_workflow.png
+- Page_5_Figure_4_2_preprocessing_workflow.svg
+- Page_5_Figure_4_3_resized_and_augmented_example.png
+- OPTIONAL_Page_9_qualitative_comparison.png
+
+Recommendation:
+- Use the optional qualitative comparison only if your Chapter 4 includes a small data visualization discussion.
+- If you already have a strong Results chapter, move that optional figure to Chapter 5 instead.
+
+Use_in_Results
+--------------
+These files are more result-oriented and should be placed in the Results chapter.
+
+Included here:
+- Page_6_real_training_curves.png
+- Page_9_qualitative_comparison.png
+- Page_10_real_metrics_summary.csv
+- Page_10_real_metrics_summary.txt
+- final_results.csv
+- euvp_validation_metrics.txt
+- uieb_summary.txt
+- ruie_summary_metrics.txt
+- training_log.csv
+
+Recommendation:
+- Use training curves, metric tables, and qualitative result panels in Chapter 5.
+- This chapter is the correct place for performance discussion and metric interpretation.
+
+Simple rule
+-----------
+- Chapter 4 = explain the system
+- Chapter 5 = prove the performance
+
+So:
+- dataset and preprocessing items go to Chapter 4
+- training curves, metric summaries, and stronger visual comparisons go to Chapter 5

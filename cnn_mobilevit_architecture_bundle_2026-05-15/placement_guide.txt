@@ -1,0 +1,11 @@
+Recommended placement
+=====================
+
+Inside Chapter 3, Section 3.1.1 Convolutional Neural Network (CNN):
+- Insert Figure A1_CNN_Enhancement_Architecture after the paragraph explaining encoder-decoder processing.
+
+Immediately after you mention the MobileViT-style bottleneck in the CNN explanation:
+- Insert Figure A2_MobileViT_Block_Architecture.
+
+If you want only one architecture in the main report:
+- Keep Figure A1 in the main chapter and move Figure A2 to appendix or optional extra methodology figure.

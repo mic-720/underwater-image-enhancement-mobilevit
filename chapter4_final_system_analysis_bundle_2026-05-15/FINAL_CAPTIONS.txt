@@ -1,0 +1,13 @@
+Figure 4.1: Sample degraded underwater images collected from EUVP, UIEB, and RUIE benchmark datasets.
+
+Figure 4.2: Training setup workflow of the proposed underwater image enhancement system, showing the flow from paired dataset input to validation and checkpoint saving.
+
+Figure 4.3: Example of resizing and augmentation applied during preprocessing to improve model robustness.
+
+Figure 4.5: System implementation workflow showing the major stages from dataset collection to result generation.
+
+Table 4.1: Summary of datasets used for training, validation, and evaluation in the project.
+
+Table 4.2: Hyperparameter settings used in model training and optimization.
+
+Table 4.3: Software requirements and tools used to develop and run the proposed system.

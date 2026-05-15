@@ -1,0 +1,26 @@
+Recommended placement for Chapter 4 System Analysis
+===================================================
+
+After the opening paragraph of Chapter 4:
+- Insert Table 4.1 Dataset Summary
+
+Inside Section 4.1 Collection of Dataset:
+- Insert Figure 4.1 Sample Degraded Underwater Images from EUVP, UIEB, and RUIE
+- Use this figure to explain the common underwater degradation problems such as color cast, low contrast, haze, and reduced visibility
+
+Inside Section 4.2 Preprocessing of Collected Dataset:
+- Insert Figure 4.2 Preprocessing Workflow
+- Insert Figure 4.3 Example of Resizing and Augmentation
+- Use Figure 4.2 to explain the pipeline from dataset collection to model-ready tensor conversion
+- Use Figure 4.3 to explain resizing to 256 x 256 and augmentation for training diversity
+
+Inside Section 4.3 Data Visualization:
+- Insert Figure 4.4 Sample Qualitative Comparison with Caption
+- Use this figure to explain how the system visually compares degraded input images and enhanced outputs
+
+Inside Section 4.4 Caption Preparation:
+- Refer to figure_captions.txt
+- Use the prepared captions as examples of how to describe dataset source, scene type, degradation, and enhancement outcome
+
+Before the summary paragraph of Chapter 4:
+- Briefly refer back to Table 4.1 and Figures 4.1 to 4.4 to show that the system analysis is supported by both structured data and visual evidence

@@ -1,0 +1,3 @@
+Figure A1: Overall CNN-based encoder-decoder architecture used for underwater image enhancement. The network contains two convolutional encoder blocks, a MobileViT bottleneck, two decoder blocks, and a residual output connection.
+
+Figure A2: Internal MobileViT bottleneck block used in the proposed model. It combines local convolution, transformer encoder layers, projection convolution, and a residual identity connection for contextual feature refinement.

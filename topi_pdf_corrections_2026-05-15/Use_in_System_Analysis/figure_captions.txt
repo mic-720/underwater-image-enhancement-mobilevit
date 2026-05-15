@@ -1,0 +1,8 @@
+Figure 4.1: Sample degraded underwater images collected from EUVP, UIEB, and RUIE, showing common issues such as color cast, low contrast, and reduced visibility.
+
+Figure 4.2: Preprocessing workflow of the proposed system from dataset collection to model-ready tensor conversion.
+
+Figure 4.3: Example showing how an underwater image is resized to 256 x 256 and augmented to improve training diversity.
+
+Figure 4.4: Qualitative comparison between the original degraded image and the enhanced output produced by the proposed model.
+

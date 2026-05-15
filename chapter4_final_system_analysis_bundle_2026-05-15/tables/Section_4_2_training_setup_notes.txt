@@ -1,0 +1,12 @@
+Section 4.2 Training Setup Notes
+============================================================
+The proposed system is implemented using PyTorch and trained on paired EUVP underwater images. During training, degraded underwater images are passed as inputs and corresponding enhanced images are used as targets.
+
+Key setup values:
+- Image size: 256 x 256
+- Batch size: 8
+- Epochs: 100
+- Learning rate: 0.0005
+- Optimizer: Adam
+- Scheduler: ReduceLROnPlateau
+- Validation metrics: UCIQE and UIQM
