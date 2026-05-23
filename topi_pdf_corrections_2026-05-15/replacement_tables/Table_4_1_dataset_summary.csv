@@ -1,8 +1,0 @@
-Dataset,Role in Project,Image Count,Type,Folder
-EUVP TrainA,Degraded training inputs,2185,Paired input,data/EUVP/Paired/underwater_scenes/trainA
-EUVP TrainB,Reference training targets,2185,Paired target,data/EUVP/Paired/underwater_scenes/trainB
-EUVP Validation,Validation during training and inference,130,No-reference validation set in current pipeline,data/EUVP/Paired/underwater_scenes/validation
-UIEB raw-890,Evaluation input set,890,Paired input,data/UIEB/raw-890
-UIEB reference-890,Evaluation reference set,890,Paired target,data/UIEB/reference-890
-UIEB challenging-60,No-reference evaluation set,60,No-reference,data/UIEB/challenging-60
-RUIE,Cross-dataset evaluation,4230,No-reference multi-subset,data/RUIE

@@ -1,4 +1,0 @@
-EUVP Validation Metrics
-Images : 130
-UCIQE  : 4.8264 -> 5.7364 (+18.85%)
-UIQM   : 0.5900  -> 0.6126  (+3.84%)

@@ -1,0 +1,19 @@
+2. Why was the ablation study done in this project?
+=
+
+5. Interpretation of the results
+
+5.1 Full loss
+The full-loss model gives balanced results on both validation metrics. Its validation UCIQE is 5.7861 and its validation UIQM is 0.6396. This shows that the combined use of reconstruction, edge preservation, and color correction provides strong overall enhancement quality.
+
+5.2 No edge loss
+When edge loss is removed, the validation UCIQE becomes the highest among the three configurations, with a value of 5.8069. However, the validation UIQM drops to 0.6121. This suggests that although overall perceptual quality improves slightly in terms of UCIQE, structural sharpness and some visual quality aspects may not be preserved as well.
+
+5.3 No color loss
+When color loss is removed, the validation UIQM becomes the highest among the three configurations, with a value of 0.6494. However, the validation UCIQE becomes slightly lower at 5.7676. This suggests that the model performs well in terms of sharpness and contrast-related quality, but color correction is less balanced.
+
+6. Why was the full-loss model selected?
+Although the no-edge-loss model gives the highest validation UCIQE and the no-color-loss model gives the highest validation UIQM, the full-loss configuration was selected because it provides the most balanced performance across both metrics. The full-loss model simultaneously supports reconstruction accuracy, structural preservation, and color correction. Therefore, it offers more reliable and visually balanced underwater enhancement.
+
+The ablation study was conducted to analyze the contribution of edge loss and color loss in the proposed hybrid loss function. Three configurations were evaluated: full loss (L1 + Edge + Color), no edge loss (L1 + Color), and no color loss (L1 + Edge). The results show that removing edge loss slightly improves validation UCIQE, while removing color loss slightly improves validation UIQM. However, the full-loss configuration provides the most balanced performance across both metrics. Therefore, the final model uses the complete hybrid loss function because it jointly improves reconstruction quality, edge preservation, and color correction.
+

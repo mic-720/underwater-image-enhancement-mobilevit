@@ -1,8 +1,5 @@
 """
-models/cnn_model.py
-
 Simple encoder-bottleneck-decoder CNN for underwater image enhancement.
-This is the main model used by the training scripts in this repository.
 """
 
 import torch

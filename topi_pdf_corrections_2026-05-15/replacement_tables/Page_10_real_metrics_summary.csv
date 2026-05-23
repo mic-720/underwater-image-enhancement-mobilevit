@@ -1,5 +1,0 @@
-Dataset,Metric Summary (Real Project Values),Source
-EUVP Validation,UCIQE: 4.8264 -> 5.7364 | UIQM: 0.5900 -> 0.6126,euvp_validation_metrics.txt
-UIEB-890,PSNR: 17.5557 -> 16.8889 | SSIM: 0.7664 -> 0.7621 | UCIQE: 4.3888 -> 5.1333 | UIQM: 0.5082 -> 0.5085,uieb_summary.txt
-UIEB-Challenging-60,UCIQE: 3.1536 -> 3.9637 | UIQM: 0.4229 -> 0.4400,uieb_summary.txt
-RUIE Overall,UCIQE: 2.1926 -> 3.4089 | UIQM: 0.3624 -> 0.3684,ruie_summary_metrics.txt
