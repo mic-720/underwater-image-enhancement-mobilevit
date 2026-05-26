@@ -1,4 +1,0 @@
-config,w_l1,w_edge,w_color,val_uciqe,val_uiqm,checkpoint
-Full loss (L1 + Edge + Color),0.6,0.3,0.1,5.786101818084717,0.6396131125901001,C:\Users\ASUS\Downloads\Underwater-Image-Enhancement-clean (1)\clean_repo\checkpoints\ablation\ablation_full.pth
-No edge loss (L1 + Color),0.9,0.0,0.1,5.8069305419921875,0.6121238622274557,C:\Users\ASUS\Downloads\Underwater-Image-Enhancement-clean (1)\clean_repo\checkpoints\ablation\ablation_no_edge.pth
-No color loss (L1 + Edge),0.7,0.3,0.0,5.767588138580322,0.6493622617766277,C:\Users\ASUS\Downloads\Underwater-Image-Enhancement-clean (1)\clean_repo\checkpoints\ablation\ablation_no_color.pth
