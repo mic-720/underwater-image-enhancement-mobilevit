@@ -1,4 +1,8 @@
-config,w_l1,w_edge,w_color,val_uciqe,val_uiqm,checkpoint
-Full loss (L1 + Edge + Color),0.6,0.3,0.1,5.786101818084717,0.6396131125901001,C:\Users\ASUS\Downloads\Underwater-Image-Enhancement-clean (1)\clean_repo\checkpoints\ablation\ablation_full.pth
-No edge loss (L1 + Color),0.9,0.0,0.1,5.8069305419921875,0.6121238622274557,C:\Users\ASUS\Downloads\Underwater-Image-Enhancement-clean (1)\clean_repo\checkpoints\ablation\ablation_no_edge.pth
-No color loss (L1 + Edge),0.7,0.3,0.0,5.767588138580322,0.6493622617766277,C:\Users\ASUS\Downloads\Underwater-Image-Enhancement-clean (1)\clean_repo\checkpoints\ablation\ablation_no_color.pth
+config,losses,w_l1,w_edge,w_color,val_uciqe,val_uiqm,checkpoint
+L1,L1,1.0,0.0,0.0,5.840596675872803,0.5771314354177404,C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\checkpoints\ablation\ablation_l1.pth
+Edge,Edge,0.0,1.0,0.0,2.9332027435302734,0.3559327639018797,C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\checkpoints\ablation\ablation_edge.pth
+Color,Color,0.0,0.0,1.0,6.451778411865234,0.41128421879160965,C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\checkpoints\ablation\ablation_color.pth
+L1 + Edge,L1 + Edge,0.6666666666666667,0.33333333333333337,0.0,6.140578269958496,0.5793465188151931,C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\checkpoints\ablation\ablation_l1_edge.pth
+L1 + Color,L1 + Color,0.8571428571428572,0.0,0.14285714285714288,5.81273078918457,0.5898128085620409,C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\checkpoints\ablation\ablation_l1_color.pth
+Edge + Color,Edge + Color,0.0,0.7499999999999999,0.25,6.698602199554443,0.4149360037997238,C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\checkpoints\ablation\ablation_edge_color.pth
+Full loss (L1 + Edge + Color),L1 + Edge + Color,0.6000000000000001,0.30000000000000004,0.10000000000000002,5.504923343658447,0.5762553629750926,C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\checkpoints\ablation\ablation_full.pth

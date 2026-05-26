@@ -1,0 +1,13 @@
+CUSTOM ABLATION TABLE - Final Model 3 (20 epochs)
+========================================================================
+Configuration                             UCIQE     UIQM
+------------------------------------------------------------------------
+0.70 L1 + 0.25 Edge + 0.05 Color         6.1430   0.6258
+0.75 L1 + 0.20 Edge + 0.05 Color         5.8487   0.6181
+0.65 L1 + 0.25 Edge + 0.10 Color         5.3862   0.6010
+0.65 L1 + 0.30 Edge + 0.05 Color         5.7912   0.5878
+========================================================================
+
+Model: Final Model 3
+All runs are trained from scratch on EUVP paired data.
+Custom weights are user-defined and sum to 1.0.

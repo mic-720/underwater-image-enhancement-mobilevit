@@ -35,9 +35,9 @@ from PIL import Image, ImageDraw, ImageFont
 
 from config import (
     EUVP_TRAIN_A, EUVP_VAL,
-    CHECKPOINT_FINAL, RESULTS_DIR, IMAGE_SIZE,
+    CHECKPOINT_BEST, RESULTS_DIR, IMAGE_SIZE,
 )
-from models.cnn_model import EnhancementCNN
+from models.model3_final import EnhancementCNN
 
 IMG_EXTS = {".jpg", ".jpeg", ".png", ".bmp"}
 
@@ -195,7 +195,7 @@ def parse_args():
                    help="Image file (single) or folder (batch/validation)")
     p.add_argument("--target",     type=str, default=None,
                    help="(single) Ground truth image for 3-panel comparison")
-    p.add_argument("--checkpoint", type=str, default=CHECKPOINT_FINAL)
+    p.add_argument("--checkpoint", type=str, default=CHECKPOINT_BEST)
     p.add_argument("--size",       type=int, default=IMAGE_SIZE)
     p.add_argument("--limit",      type=int, default=8,
                    help="(batch) Max images to process. 0 = all")

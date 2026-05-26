@@ -1,11 +1,16 @@
-TABLE 2 — Ablation Study (EUVP validation, 20 epochs)
+TABLE 2 - Ablation Study (EUVP validation, 20 epochs)
 ============================================================
 Configuration                          UCIQE     UIQM
--------------------------------------------------------
-Full loss (L1 + Edge + Color)         5.7861   0.6396
-No edge loss (L1 + Color)             5.8069   0.6121
-No color loss (L1 + Edge)             5.7676   0.6494
+------------------------------------------------------------
+L1                                    5.8406   0.5771
+Edge                                  2.9332   0.3559
+Color                                 6.4518   0.4113
+L1 + Edge                             6.1406   0.5793
+L1 + Color                            5.8127   0.5898
+Edge + Color                          6.6986   0.4149
+Full loss (L1 + Edge + Color)         5.5049   0.5763
 ============================================================
 
-Note: All runs trained from scratch for 20 epochs on EUVP paired data.
-Full model uses L1:0.6 + Edge:0.3 + Color:0.1 weights.
+Note: All runs are trained from scratch on EUVP paired data.
+Base weights: L1=0.6, Edge=0.3, Color=0.1.
+For partial combinations, active losses are renormalized to sum to 1.0.

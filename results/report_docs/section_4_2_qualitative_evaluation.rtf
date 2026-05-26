@@ -1,0 +1,43 @@
+{\rtf1\ansi\deff0
+{\fonttbl{\f0 Calibri;}{\f1 Courier New;}}
+\fs24
+\b 4.2 Qualitative Evaluation\par
+\b0\par
+This section explains the comparative performance of the three enhancement models on the EUVP dataset using the results summarized in the evaluation table. The table includes both no-reference and reference-based metrics, allowing the performance of the models to be assessed from different perspectives.\par
+\par
+Figure/Table placeholder:\par
+[Insert EUVP model comparison table here]\par
+\f1 C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\results\euvp_model_comparison\euvp_model_comparison.csv\f0\par
+\par
+The comparison is carried out using two different evaluation settings. First, no-reference metrics are computed on 130 EUVP validation images. Second, reference-based metrics are computed on 218 held-out paired images from the EUVP trainA and trainB split. Because all three models are evaluated on the same number of images, the comparison remains fair and consistent.\par
+\par
+\b Meaning of the Evaluation Metrics\par
+\b0\par
+The UCIQE and UIQM metrics are no-reference metrics designed specifically for underwater image quality assessment. UCIQE reflects the quality of the image in terms of chroma, contrast, and colour balance, while UIQM measures underwater image quality using colourfulness, sharpness, and contrast-related properties. In both cases, higher values indicate better visual quality.\par
+\par
+PSNR and SSIM are reference-based evaluation metrics. PSNR measures how closely the enhanced image matches the ground-truth image at the pixel level, while SSIM measures structural similarity and perceptual consistency with the reference image. Higher values of PSNR and SSIM indicate better reconstruction quality.\par
+\par
+\b Interpretation of the Results\par
+\b0\par
+For all three models, the `UCIQE After' values are higher than the corresponding `UCIQE Before' value of 4.8264. This indicates that each model improves the underwater image quality of the EUVP validation set after enhancement. Similarly, the `UIQM After' values are also higher than the `UIQM Before' value of 0.5900 for all models, showing that all three approaches improve perceptual visual quality in terms of contrast, sharpness, and colour appearance.\par
+\par
+\b Model 1\par
+\b0\par
+Model 1 increases UCIQE from 4.8264 to 5.7979 and UIQM from 0.5900 to 0.6031. It achieves a PSNR of 26.1530 and an SSIM of 0.8544. These values indicate that the baseline model is able to enhance underwater images successfully and also maintains a good level of similarity to the reference image. However, the improvement remains relatively moderate compared with the later models.\par
+\par
+\b Model 2\par
+\b0\par
+Model 2 improves UCIQE from 4.8264 to 6.0396 and UIQM from 0.5900 to 0.6297. It records the highest PSNR value of 26.5912 and an SSIM of 0.8592. These results suggest that Model 2 offers the most balanced restoration among the three models. It produces a stronger visual enhancement than Model 1 while also preserving closer pixel-level similarity with the reference image. This indicates that the bottleneck-based CNN is more effective than the baseline architecture in recovering underwater image quality.\par
+\par
+\b Model 3\par
+\b0\par
+Model 3 achieves the highest UCIQE and UIQM values, increasing UCIQE from 4.8264 to 6.4122 and UIQM from 0.5900 to 0.6757. It also achieves the highest SSIM value of 0.8639. These results indicate that Model 3 produces the strongest perceptual enhancement and the best structural restoration among the three models. However, its PSNR value is 23.7551, which is lower than that of Models 1 and 2. This means that although Model 3 improves the visual appearance more strongly, it is less similar to the ground truth in a strict pixel-wise sense.\par
+\par
+\b Main Inference\par
+\b0\par
+The table reveals a clear tradeoff between perceptual enhancement and pixel-level fidelity. Model 1 provides the baseline level of improvement. Model 2 gives the best balanced performance by combining strong enhancement with the highest PSNR and competitive SSIM. Model 3 delivers the best perceptual enhancement, as shown by the highest UCIQE, UIQM, and SSIM values, but this comes with a reduction in PSNR.\par
+\par
+\b Conclusion\par
+\b0\par
+Overall, the results show that all three models are effective for underwater image enhancement on the EUVP dataset. Model 1 establishes the baseline improvement, Model 2 provides the most balanced restoration quality, and Model 3 gives the strongest perceptual enhancement. Therefore, the choice of model depends on the desired objective: if balanced fidelity and enhancement are preferred, Model 2 performs best, while if stronger visual enhancement and underwater quality improvement are the priority, Model 3 provides the most effective result.\par
+}

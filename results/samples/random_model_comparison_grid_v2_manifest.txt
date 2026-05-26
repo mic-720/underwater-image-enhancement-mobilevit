@@ -1,0 +1,5 @@
+selected_image=C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\data\EUVP\Paired\underwater_scenes\validation\im_f1986_.jpg
+seed=42
+Model 1 Enhanced checkpoint=C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\checkpoints\model1_training_curves\model1_final.pth
+Model 2 Enhanced checkpoint=C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\checkpoints\model2_training_curves\model2_final.pth
+Model 3 Enhanced checkpoint=C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\checkpoints\model3_final_training_curves\model3_final_best.pth

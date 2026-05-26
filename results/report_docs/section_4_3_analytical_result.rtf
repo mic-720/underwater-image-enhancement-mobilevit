@@ -1,0 +1,35 @@
+{\rtf1\ansi\deff0
+{\fonttbl{\f0 Calibri;}{\f1 Courier New;}}
+\fs24
+\b 4.3 Analytical Result\par
+\b0\par
+This section discusses the failure behaviour and over-enhancement tendency of Model 3 using the checkpoint \f1 C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\checkpoints\model_best.pth\f0 . The purpose is to examine situations where the model does not produce an ideal restoration result even though its overall perceptual performance is strong.\par
+\par
+\b Failure Case of Model 3\par
+\b0\par
+Figure placeholder:\par
+[Insert failure case image here]\par
+\f1 C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\results\section_4_3_analytical\model3_failure_case_ruie_0316.png\f0\par
+\par
+The selected failure case is taken from the RUIE UTTS sample \f1 0316.JPG\f0 . In this example, the enhanced output does not improve the scene successfully. Instead of producing clearer structure and more natural colour recovery, the result becomes grainy and visually harsh. The sea-floor region shows amplified noise-like texture, while the overall scene loses natural smoothness. Quantitatively, this failure is also reflected by the decrease in no-reference quality metrics, where UCIQE drops from 2.5593 to 2.2954 and UIQM decreases slightly from 0.4732 to 0.4629. This indicates that the model not only struggles visually in this case, but also fails to improve the estimated underwater image quality.\par
+\par
+The main reason for failure is that this image contains weak structure, suspended particles, and difficult local contrast. Under such conditions, the model tends to strengthen unwanted texture patterns together with useful details. As a result, noise, haze residue, and small speckled regions are emphasized rather than suppressed. The overall quality of this output can therefore be considered weak, because visibility improvement is limited and the restored image appears less natural than expected.\par
+\par
+\b Over-Enhancement Case of Model 3\par
+\b0\par
+Figure placeholder:\par
+[Insert over-enhancement image here]\par
+\f1 C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\results\section_4_3_analytical\model3_overenhancement_case_uieb_94_img.png\f0\par
+\par
+The over-enhancement case is illustrated using the UIEB sample \f1 94_img_.png\f0 . In the input image, the underwater scene already has relatively strong visibility and colour separation. After enhancement, the seabed and coral region become darker and warmer than necessary, causing the output to look overly processed. This excessive modification reduces similarity to the reference image. The effect is confirmed by a sharp drop in PSNR from 42.9551 to 17.3028 and a drop in SSIM from 0.9993 to 0.7674. In addition, UCIQE decreases from 10.4401 to 9.3043 and UIQM decreases from 0.5331 to 0.4993, showing that the enhancement is not beneficial in this case.\par
+\par
+This over-enhancement happens because Model 3 is optimized to produce strong perceptual correction and may still apply aggressive colour and contrast changes even when the input image is already close to an acceptable visual state. In other words, the model enhances by default, but it has limited restraint for mild or already well-balanced inputs.\par
+\par
+\b Missing Features and Limitation Analysis\par
+\b0\par
+Although Model 3 performs well overall, several useful capabilities are not explicitly present in the design. First, the model does not contain a dedicated mechanism for estimating scene difficulty or deciding when enhancement should be reduced. Second, it does not include an explicit noise-suppression or particle-removal module, so difficult underwater artifacts may be amplified during restoration. Third, it does not use a physics-guided underwater formation model, which limits its ability to separate true scene content from scattering and colour distortion. Finally, it lacks a specific control mechanism for adaptive enhancement strength, which increases the risk of over-enhancement in already clear scenes.\par
+\par
+\b Analytical Conclusion\par
+\b0\par
+Overall, Model 3 provides the strongest visual enhancement among the studied models, but these analytical cases show that its performance is not uniformly stable. It can fail when the scene contains heavy particulate interference, weak structure, or very ambiguous local texture, and it can over-enhance images that already have relatively good visibility. Therefore, while Model 3 is the best general performer in this project, its behaviour still reveals the need for better adaptive control, stronger artifact suppression, and more scene-aware enhancement decisions.\par
+}

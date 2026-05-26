@@ -1,0 +1,10 @@
+dataset,degradation_type,filename,path,brightness,green_bias,blur_score,contrast
+EUVP,Low-Light,im_u881_.jpg,C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\data\EUVP\Paired\underwater_scenes\validation\im_u881_.jpg,0.143001,-0.011966,31.118712,0.085412
+EUVP,Greenish Cast,im_f2063_.jpg,C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\data\EUVP\Paired\underwater_scenes\validation\im_f2063_.jpg,0.535898,0.350355,97.167831,0.102142
+EUVP,Blur / Low Contrast,im_u1441_.jpg,C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\data\EUVP\Paired\underwater_scenes\validation\im_u1441_.jpg,0.268799,0.028960,7.213516,0.102239
+UIEB,Low-Light,3175.png,C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\data\UIEB\challenging-60\3175.png,0.077806,0.039120,9.087486,0.038361
+UIEB,Greenish Cast,5.png,C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\data\UIEB\challenging-60\5.png,0.420936,0.324073,49.556264,0.158955
+UIEB,Blur / Low Contrast,15775.png,C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\data\UIEB\challenging-60\15775.png,0.450197,0.095149,6.249863,0.049836
+RUIE,Low-Light,E_722.jpg,C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\data\RUIE\UIQS\E\E_722.jpg,0.134035,0.076990,19.037952,0.082700
+RUIE,Greenish Cast,E_671.jpg,C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\data\RUIE\UIQS\E\E_671.jpg,0.527196,0.408621,6.858042,0.108741
+RUIE,Blur / Low Contrast,D_540.jpg,C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\data\RUIE\UIQS\D\D_540.jpg,0.411138,0.314446,1.580274,0.054923

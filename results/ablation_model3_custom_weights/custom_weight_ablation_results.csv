@@ -1,0 +1,5 @@
+config,losses,note,w_l1,w_edge,w_color,val_uciqe,val_uiqm,checkpoint
+0.70 L1 + 0.25 Edge + 0.05 Color,0.70*L1 + 0.25*Edge + 0.05*Color,Best-result candidate,0.7,0.25,0.05,6.1430206298828125,0.6257640455432385,C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\checkpoints\ablation_model3_custom_weights\l1_070_edge_025_color_005.pth
+0.75 L1 + 0.20 Edge + 0.05 Color,0.75*L1 + 0.20*Edge + 0.05*Color,Upper-limit check,0.75,0.2,0.05,5.848706245422363,0.6181365924442513,C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\checkpoints\ablation_model3_custom_weights\l1_075_edge_020_color_005.pth
+0.65 L1 + 0.25 Edge + 0.10 Color,0.65*L1 + 0.25*Edge + 0.10*Color,Higher color contribution,0.65,0.25,0.1,5.386204719543457,0.6010062780047769,C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\checkpoints\ablation_model3_custom_weights\l1_065_edge_025_color_010.pth
+0.65 L1 + 0.30 Edge + 0.05 Color,0.65*L1 + 0.30*Edge + 0.05*Color,Edge-dominant variant,0.65,0.3,0.05,5.791235446929932,0.587772892649249,C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\checkpoints\ablation_model3_custom_weights\l1_065_edge_030_color_005.pth

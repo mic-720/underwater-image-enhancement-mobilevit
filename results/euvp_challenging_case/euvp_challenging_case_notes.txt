@@ -1,0 +1,17 @@
+Challenging EUVP Case Selection
+===============================
+
+Selected file: im_f1210_.jpg
+Dataset split : EUVP paired trainA/trainB
+
+Why this image is challenging:
+- It contains dense coral texture and fine structures.
+- It has a strong blue underwater tone and wide colour variation.
+- It is useful for showing both robustness and limitations in colour restoration.
+- It allows comparison against paired ground truth.
+
+Interpretation focus:
+- colour restoration
+- contrast recovery
+- preservation of fine details
+- tendency toward oversaturation or remaining colour bias

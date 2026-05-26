@@ -1,0 +1,118 @@
+Qualitative Analysis of EUVP Triplet Grids
+==========================================
+
+This qualitative analysis is based on the three EUVP sample triplet grids:
+- model1_euvp_triplet_grid.png
+- model2_euvp_triplet_grid.png
+- model3_euvp_triplet_grid.png
+
+Each grid contains three degradation cases:
+1. Low-Light
+2. Greenish Cast
+3. Blur / Low Contrast
+
+For every case, the columns are:
+- Input
+- Preprocessed
+- Enhanced
+
+General Observation
+-------------------
+The Input and Preprocessed images are visually very similar because preprocessing in this project mainly performs resizing, RGB conversion, and tensor normalization. The main visible changes appear in the Enhanced column, where the trained models improve brightness, contrast, and colour balance.
+
+Sample 1: Low-Light Image
+-------------------------
+Before enhancement:
+- The image appears dark and slightly dull.
+- Background visibility is weak because most details are hidden in shadow regions.
+- The squid body is visible, but the contrast between the foreground and background is limited.
+- The colour distribution is biased toward a dark bluish-green underwater tone.
+
+After enhancement:
+- Brightness is increased, making the squid body more prominent.
+- The red and orange regions become stronger and more saturated.
+- Foreground-background separation improves because the subject stands out more clearly from the dark water.
+- The background becomes slightly cleaner and deeper in tone, which improves visual contrast.
+
+Colour restoration:
+- The original dark bluish-green cast is reduced.
+- Warmer colours in the squid are restored more naturally.
+- Red and orange tones become much more visible after enhancement.
+
+Model-wise impression:
+- Model 1 improves visibility and colour, but the result is slightly softer.
+- Model 2 gives stronger contrast and a slightly richer red tone.
+- Model 3 gives the strongest colour recovery and the clearest foreground emphasis, especially in the squid body.
+
+Sample 2: Greenish Cast Image
+-----------------------------
+Before enhancement:
+- The image is dominated by a strong green-cyan colour cast.
+- Natural colours of the seabed and coral-like objects are suppressed.
+- Contrast is low because the entire image is covered by a similar greenish tone.
+- The scene looks hazy and washed by underwater colour distortion.
+
+After enhancement:
+- The green dominance is reduced noticeably.
+- Beige, brown, and pale coral tones begin to reappear in the seabed region.
+- Contrast between the foreground objects and the surrounding sand/rocks becomes clearer.
+- The scene looks less tinted and more balanced overall.
+
+Colour restoration:
+- The major restoration here is removal of the excessive greenish cast.
+- The enhanced result shifts the scene toward more neutral underwater colours.
+- Brownish and sandy tones are better recovered, which improves realism.
+
+Model-wise impression:
+- Model 1 reduces the green cast but still leaves a mild greenish tint.
+- Model 2 performs a slightly stronger correction and improves local contrast more clearly.
+- Model 3 shows the best colour restoration in this example, with the most noticeable reduction of green cast and the most natural recovery of seabed colours.
+
+Sample 3: Blur / Low Contrast Image
+-----------------------------------
+Before enhancement:
+- The shark image appears soft and slightly blurred.
+- The blue underwater background dominates the scene.
+- Edges around the shark body and fins are not very sharp.
+- Overall contrast is low, which reduces object separation.
+
+After enhancement:
+- The shark outline becomes more distinct.
+- Brightness and contrast increase, especially around the main shark body.
+- The body texture and silhouette become easier to distinguish from the background.
+- The image remains bluish, but the tonal variation within the blue region becomes stronger.
+
+Colour restoration:
+- This image is already blue-dominant, so restoration is less about removing a wrong colour cast and more about improving tonal clarity within the blue range.
+- The enhanced result preserves the underwater blue appearance while making the shark more visually separated from the background.
+
+Blur and sharpness change:
+- Edge definition improves after enhancement.
+- The shark body appears cleaner and slightly sharper.
+- The low-contrast appearance is reduced even when the colour shift is not dramatic.
+
+Model-wise impression:
+- Model 1 improves clarity modestly and preserves a natural blue tone.
+- Model 2 adds stronger contrast and makes the shark slightly more pronounced.
+- Model 3 gives the clearest overall separation between subject and background, with the best balance between preserved blue tone and improved visibility.
+
+Overall Inference Across the Three Samples
+------------------------------------------
+- The enhancement process improves brightness in dark regions.
+- It reduces strong underwater colour casts, especially the greenish tint.
+- It increases contrast between subjects and the background.
+- It improves visibility of important objects without completely removing the underwater visual character.
+
+Before and after colour restoration can be summarized as follows:
+- Low-light sample: dark bluish-green appearance is shifted toward brighter and warmer red-orange subject tones.
+- Greenish-cast sample: excessive green tint is reduced and more natural sandy/brown colours are recovered.
+- Blur / low-contrast sample: the blue underwater tone is preserved, but contrast and local clarity are improved.
+
+Comparative summary of the three models:
+- Model 1 provides visible enhancement but tends to be slightly conservative.
+- Model 2 gives stronger contrast and somewhat better colour recovery than Model 1.
+- Model 3 provides the strongest overall qualitative enhancement, particularly in colour restoration, contrast recovery, and subject-background separation.
+
+Conclusion
+----------
+The triplet grids show that enhancement is not only increasing brightness, but also restoring underwater colour balance and improving scene readability. The most important visible improvements are reduction of greenish cast, recovery of warmer natural colours, stronger local contrast, and clearer object boundaries. Among the three models, Model 3 shows the most consistent visual improvement across the selected EUVP examples.

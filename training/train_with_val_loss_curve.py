@@ -17,6 +17,7 @@ What it does not save:
 """
 
 import argparse
+import csv
 import os
 import random
 import sys

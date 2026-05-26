@@ -17,8 +17,10 @@ if PROJECT_ROOT not in sys.path:
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+import numpy as np
 import torch
 import torch.nn as nn
+from skimage.metrics import peak_signal_noise_ratio, structural_similarity
 from torch.utils.data import DataLoader, random_split
 
 from config import BATCH_SIZE, EPOCHS, EUVP_TRAIN_A, EUVP_TRAIN_B, IMAGE_SIZE, LR, RESULTS_DIR
@@ -62,6 +64,35 @@ def evaluate_loss(model, loader, criterion, device):
             loss = criterion(out, tar)
             total_loss += loss.item()
     return total_loss / len(loader)
+
+
+def evaluate_psnr_ssim(model, loader, device):
+    model.eval()
+    psnr_scores = []
+    ssim_scores = []
+
+    with torch.no_grad():
+        for inp, tar in loader:
+            inp = inp.to(device)
+            out = model(inp).cpu().numpy()
+            tar = tar.cpu().numpy()
+
+            for pred, gt in zip(out, tar):
+                pred_img = np.transpose(np.clip(pred, 0.0, 1.0), (1, 2, 0))
+                gt_img = np.transpose(np.clip(gt, 0.0, 1.0), (1, 2, 0))
+                psnr_scores.append(
+                    peak_signal_noise_ratio(gt_img, pred_img, data_range=1.0)
+                )
+                ssim_scores.append(
+                    structural_similarity(
+                        gt_img,
+                        pred_img,
+                        channel_axis=2,
+                        data_range=1.0,
+                    )
+                )
+
+    return float(np.mean(psnr_scores)), float(np.mean(ssim_scores))
 
 
 def main():
@@ -110,6 +141,8 @@ def main():
 
     train_losses = []
     val_losses = []
+    val_psnrs = []
+    val_ssims = []
 
     for epoch in range(args.epochs):
         model.train()
@@ -130,14 +163,19 @@ def main():
 
         epoch_train_loss = running_train_loss / len(train_loader)
         epoch_val_loss = evaluate_loss(model, val_loader, criterion, device)
+        epoch_val_psnr, epoch_val_ssim = evaluate_psnr_ssim(model, val_loader, device)
 
         train_losses.append(epoch_train_loss)
         val_losses.append(epoch_val_loss)
+        val_psnrs.append(epoch_val_psnr)
+        val_ssims.append(epoch_val_ssim)
 
         print(
             f"Epoch {epoch + 1}/{args.epochs}  "
             f"Train Loss: {epoch_train_loss:.6f}  "
-            f"Val Loss: {epoch_val_loss:.6f}",
+            f"Val Loss: {epoch_val_loss:.6f}  "
+            f"PSNR: {epoch_val_psnr:.4f}  "
+            f"SSIM: {epoch_val_ssim:.4f}",
             flush=True,
         )
 
@@ -154,7 +192,33 @@ def main():
     plt.savefig(args.output, dpi=300)
     plt.close()
 
+    output_root, output_ext = os.path.splitext(args.output)
+    psnr_output = f"{output_root}_psnr{output_ext}"
+    ssim_output = f"{output_root}_ssim{output_ext}"
+
+    plt.figure(figsize=(8, 5))
+    plt.plot(epochs_x, val_psnrs, color="royalblue", linewidth=2)
+    plt.xlabel("Epoch")
+    plt.ylabel("PSNR")
+    plt.title("PSNR vs Epoch")
+    plt.grid(True, linestyle="--", alpha=0.5)
+    plt.tight_layout()
+    plt.savefig(psnr_output, dpi=300)
+    plt.close()
+
+    plt.figure(figsize=(8, 5))
+    plt.plot(epochs_x, val_ssims, color="seagreen", linewidth=2)
+    plt.xlabel("Epoch")
+    plt.ylabel("SSIM")
+    plt.title("SSIM vs Epoch")
+    plt.grid(True, linestyle="--", alpha=0.5)
+    plt.tight_layout()
+    plt.savefig(ssim_output, dpi=300)
+    plt.close()
+
     print(f"Curve saved to: {args.output}", flush=True)
+    print(f"PSNR curve saved to: {psnr_output}", flush=True)
+    print(f"SSIM curve saved to: {ssim_output}", flush=True)
 
 
 if __name__ == "__main__":

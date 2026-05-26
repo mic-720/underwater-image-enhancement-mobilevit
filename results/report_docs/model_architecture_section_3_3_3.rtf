@@ -1,0 +1,135 @@
+{\rtf1\ansi\deff0
+{\fonttbl
+{\f0 Arial;}
+}
+\fs24
+\b 3.3.3 Model Architecture\par
+\b0\par
+This section discusses the three model variants used in the project. The discussion is organised into: (1) the baseline encoder-decoder CNN, (2) the CNN with an additional convolutional bottleneck layer, and (3) the hybrid CNN model with a MobileViT-style bottleneck, skip connections, and residual output. For each model, the architectural design, training behaviour, validation behaviour, and metric trends are interpreted using the generated plots.\par
+\par
+\b 3.3.3.1 Baseline Model\par
+\b0\par
+The baseline model is a lightweight encoder-decoder CNN that uses only convolution, ReLU activation, max pooling, bilinear upsampling, and a sigmoid output layer. In this structure, the encoder gradually extracts features from the degraded underwater image, while the decoder reconstructs an enhanced image from the compressed representation. The baseline model does not include an explicit bottleneck module or skip connections. Its purpose is to provide a simple reference architecture so that more advanced variants can be compared against it.\par
+\par
+In this model, the image first passes through the encoder, where the feature depth increases from 3 channels to 32 channels and then to 64 channels. Spatial resolution is reduced through max pooling so that the model can learn compressed representations. The decoder then upsamples the compressed feature map step by step and maps it back to a 3-channel enhanced image. Since the design is simple, the model is computationally efficient and easy to optimise, but it has limited capacity for capturing complex contextual relationships across the full image.\par
+\par
+\b [Insert Model 1 Block Diagram Here]\par
+\b0 Suggested file: results/model_block_diagrams/model1_block_diagram.png\par
+\par
+\b Training and Validation Loss Behaviour\par
+\b0\par
+The training loss curve and the validation loss curve show that the baseline model learns meaningful enhancement mappings throughout training. At the beginning, the training loss is relatively high at approximately 0.0853 and the validation loss is around 0.0628. As the epochs progress, both curves show a consistent downward trend. By epoch 100, the training loss decreases to about 0.0390, while the validation loss decreases to about 0.0396.\par
+\par
+This trend suggests that the model is converging and learning stable feature mappings rather than behaving randomly. The decreasing validation loss confirms that the learned representation generalises to unseen paired validation samples. The gap between training loss and validation loss remains small across training, which suggests that severe overfitting is not present. Small oscillations are visible in some epochs, but these are normal in deep learning optimisation and do not indicate divergence. Overall, the baseline model is trainable, stable, and able to learn the enhancement task, although its final performance remains limited compared with more advanced architectures.\par
+\par
+\b [Insert Model 1 Training Loss vs Epoch Figure Here]\par
+\b0 Suggested file: results/model1_training_curves/model1_train_loss_vs_epoch.png\par
+\b [Insert Model 1 Validation Loss vs Epoch Figure Here]\par
+\b0 Suggested file: results/model1_training_curves/model1_val_loss_vs_epoch.png\par
+\par
+\b Inference from the Loss Curves\par
+\b0\par
+The loss curves indicate that the baseline architecture is capable of learning the task without instability. The smooth reduction in both curves implies successful optimisation. Since the validation curve follows the training curve closely, the model is not strongly underfitting or overfitting by the end of training. However, because the architecture is simple and lacks richer feature refinement mechanisms, its representational strength is lower than the later models.\par
+\par
+\b PSNR and SSIM Behaviour\par
+\b0\par
+The PSNR curve rises from approximately 21.79 in the first epoch to 26.15 by epoch 100. This indicates that the reconstructed output becomes increasingly closer to the paired target images over time. The SSIM curve also rises substantially, from around 0.5792 to 0.8520, showing that the structural similarity between the predicted output and the target image improves steadily.\par
+\par
+These trends confirm that the baseline model is not only reducing training loss but is also improving objective image-quality similarity with the target references. The PSNR increase shows better pixel-level fidelity, while the SSIM increase shows better preservation of structural image content. The gradual saturation of both curves near later epochs suggests that the model approaches a stable performance limit.\par
+\par
+\b [Insert Model 1 PSNR vs Epoch Figure Here]\par
+\b0 Suggested file: results/model1_training_curves/model1_psnr_vs_epoch.png\par
+\b [Insert Model 1 SSIM vs Epoch Figure Here]\par
+\b0 Suggested file: results/model1_training_curves/model1_ssim_vs_epoch.png\par
+\par
+\b Inference from the PSNR and SSIM Curves\par
+\b0\par
+The baseline model clearly learns useful enhancement behaviour. Both curves show consistent upward movement and do not collapse during training. This means the architecture is valid and trainable. However, the later comparison results show that this model is not the strongest performer among the three. It provides a stable baseline rather than the highest final enhancement quality.\par
+\par
+\b 3.3.3.2 CNN + Bottleneck Layer\par
+\b0\par
+The second model extends the baseline encoder-decoder design by adding a dedicated convolutional bottleneck block between the encoder and decoder. This bottleneck consists of two convolutional layers operating at the compressed feature level. The purpose of this addition is to provide deeper feature transformation before reconstruction, allowing the network to learn more complex restoration patterns than the baseline architecture.\par
+\par
+The encoder again extracts hierarchical features from the 3-channel input image and compresses the representation to 64 channels at a smaller spatial scale. Instead of passing directly to the decoder, the encoded representation is processed through the bottleneck, where deeper convolutional refinement is performed. The decoder then reconstructs the enhanced image using bilinear upsampling and convolution. This design increases representational power while remaining simpler than a hybrid transformer-based model.\par
+\par
+\b [Insert Model 2 Block Diagram Here]\par
+\b0 Suggested file: results/model_block_diagrams/model2_block_diagram.png\par
+\par
+\b Training and Validation Loss Behaviour\par
+\b0\par
+The training and validation loss curves for Model 2 show stronger learning behaviour than the baseline model. Training loss decreases from approximately 0.0927 at epoch 1 to about 0.0368 at epoch 100. Validation loss also declines from around 0.0707 to about 0.0381 by the end of training. Compared with the baseline model, the final training and validation losses are lower, which suggests that the additional bottleneck layer improves feature refinement.\par
+\par
+The training process is stable overall, with some temporary fluctuations in validation loss at intermediate stages. These variations are not severe enough to indicate instability. Instead, they reflect the typical behaviour of a deeper model responding to data complexity while still converging properly. The close relationship between the final training and validation loss values suggests that the model generalises well and does not show strong overfitting. The bottleneck therefore appears to improve learning capacity without causing optimisation problems.\par
+\par
+\b [Insert Model 2 Training Loss vs Epoch Figure Here]\par
+\b0 Suggested file: results/model2_training_curves/model2_train_loss_vs_epoch.png\par
+\b [Insert Model 2 Validation Loss vs Epoch Figure Here]\par
+\b0 Suggested file: results/model2_training_curves/model2_val_loss_vs_epoch.png\par
+\par
+\b Inference from the Loss Curves\par
+\b0\par
+The lower final loss values compared with the baseline indicate that the bottleneck adds useful representational depth. The model learns more effectively and maintains stable validation behaviour. This means the bottleneck is helping the network capture richer restoration patterns rather than simply increasing complexity without benefit.\par
+\par
+\b PSNR and SSIM Behaviour\par
+\b0\par
+For Model 2, PSNR increases from about 20.89 at the beginning of training to approximately 26.45 by epoch 100. SSIM rises from around 0.5405 to about 0.8575. These curves show that the model gains both pixel-level reconstruction quality and structural similarity during training. Compared with the baseline model, Model 2 finishes with a higher PSNR and a slightly higher SSIM, which indicates that the bottleneck improves fidelity to the ground-truth target images.\par
+\par
+The PSNR curve exhibits a generally increasing trend with some small local fluctuations, while SSIM also improves steadily. These fluctuations are expected because metric-based evaluation can vary across epochs even when overall learning is improving. The key point is that both curves end higher than those of the baseline, showing a real benefit from the bottleneck design.\par
+\par
+\b [Insert Model 2 PSNR vs Epoch Figure Here]\par
+\b0 Suggested file: results/model2_training_curves/model2_psnr_vs_epoch.png\par
+\b [Insert Model 2 SSIM vs Epoch Figure Here]\par
+\b0 Suggested file: results/model2_training_curves/model2_ssim_vs_epoch.png\par
+\par
+\b Inference from the PSNR and SSIM Curves\par
+\b0\par
+The metric curves suggest that Model 2 improves reconstruction quality more effectively than the baseline. The rise in PSNR and SSIM supports the interpretation that the bottleneck helps the network form a better latent representation before decoding. This makes Model 2 a stronger conventional CNN model than Model 1.\par
+\par
+\b 3.3.3.3 Hybrid CNN Model\par
+\b0\par
+The third model is the hybrid CNN architecture used as the most advanced variant in this study. It combines convolutional encoder-decoder processing with a MobileViT-style bottleneck, skip connections, and a residual output connection. The encoder extracts low-level and mid-level features, the MobileViT-style bottleneck models deeper contextual relationships at a compressed resolution, and the decoder reconstructs the enhanced image while recovering spatial information. Skip connections link encoder features to decoder stages so that fine details are preserved, while the residual output adds the input image back before the sigmoid activation to encourage restoration rather than complete re-synthesis.\par
+\par
+Because this model integrates local convolutional processing with transformer-style contextual modelling, it is expected to improve perceptual enhancement quality and structural consistency. It is more expressive than the previous two architectures, although it is also more computationally demanding.\par
+\par
+\b [Insert Model 3 Block Diagram Here]\par
+\b0 Suggested file: results/model_block_diagrams/model3_block_diagram.png\par
+\par
+\b Training and Validation Curves\par
+\b0\par
+The hybrid model shows stable training behaviour under the combined loss setting. The training loss decreases from approximately 0.0927 in the early stage to about 0.0513 near epoch 100, while the validation loss decreases from roughly 0.0707 to around 0.0465. Although the loss values are not directly comparable to the simpler models on a one-to-one basis because the hybrid model is trained with the combined L1, Edge, and Color objective, the downward trend clearly indicates that optimisation is effective and the network is learning.\par
+\par
+The validation loss remains consistently below or close to the training loss near later epochs, which is reasonable because training uses augmentation while validation is measured on clean held-out paired samples. This pattern does not suggest harmful overfitting. Instead, it indicates that the model learns robust enhancement behaviour while maintaining stable validation performance. The training process therefore appears well controlled even though the model itself is more complex than the earlier CNN variants.\par
+\par
+\b [Insert Model 3 Training Loss vs Epoch Figure Here]\par
+\b0 Suggested file: results/model3_final_training_curves/model3_final_train_loss_vs_epoch.png\par
+\b [Insert Model 3 Validation Loss vs Epoch Figure Here]\par
+\b0 Suggested file: results/model3_final_training_curves/model3_final_val_loss_vs_epoch.png\par
+\par
+\b Interpretation of the Hybrid Model Curves\par
+\b0\par
+The hybrid model benefits from stronger feature modelling capacity. Even though its loss formulation is more complex, the overall trends remain smooth and convergent. This indicates that the architecture is trainable and that the hybrid bottleneck, skip connections, and residual design work together effectively. In the final EUVP comparison, this model also produces the strongest no-reference quality scores and the highest SSIM, which supports the conclusion that the hybrid design improves perceptual enhancement and structural preservation.\par
+\par
+\b Performance Summary Across the Three Models\par
+\b0\par
+Using the saved EUVP comparison results, the baseline model achieved UCIQE 5.7979, UIQM 0.6031, PSNR 26.1530, and SSIM 0.8544. The CNN with bottleneck improved these values to UCIQE 6.0396, UIQM 0.6297, PSNR 26.5912, and SSIM 0.8592. The hybrid model achieved the strongest no-reference metrics and the highest SSIM, with UCIQE 6.4122, UIQM 0.6757, PSNR 23.7551, and SSIM 0.8639. These results show that the hybrid design is the strongest in perceptual underwater enhancement quality, while Model 2 remains strongest in PSNR.\par
+\par
+\b Files Used in This Section\par
+\b0\par
+Model 1 block diagram: results/model_block_diagrams/model1_block_diagram.png\par
+Model 2 block diagram: results/model_block_diagrams/model2_block_diagram.png\par
+Model 3 block diagram: results/model_block_diagrams/model3_block_diagram.png\par
+Model 1 training loss: results/model1_training_curves/model1_train_loss_vs_epoch.png\par
+Model 1 validation loss: results/model1_training_curves/model1_val_loss_vs_epoch.png\par
+Model 1 PSNR: results/model1_training_curves/model1_psnr_vs_epoch.png\par
+Model 1 SSIM: results/model1_training_curves/model1_ssim_vs_epoch.png\par
+Model 2 training loss: results/model2_training_curves/model2_train_loss_vs_epoch.png\par
+Model 2 validation loss: results/model2_training_curves/model2_val_loss_vs_epoch.png\par
+Model 2 PSNR: results/model2_training_curves/model2_psnr_vs_epoch.png\par
+Model 2 SSIM: results/model2_training_curves/model2_ssim_vs_epoch.png\par
+Model 3 training loss: results/model3_final_training_curves/model3_final_train_loss_vs_epoch.png\par
+Model 3 validation loss: results/model3_final_training_curves/model3_final_val_loss_vs_epoch.png\par
+Model 3 PSNR: results/model3_final_training_curves/model3_final_psnr_vs_epoch.png\par
+Model 3 SSIM: results/model3_final_training_curves/model3_final_ssim_vs_epoch.png\par
+Comparison table: results/euvp_model_comparison/euvp_model_comparison_table.txt\par
+Comparison CSV: results/euvp_model_comparison/euvp_model_comparison.csv\par
+}

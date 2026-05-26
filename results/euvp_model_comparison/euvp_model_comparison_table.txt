@@ -1,0 +1,10 @@
+EUVP Performance Evaluation Table
+====================================================================================================================================
+Model      No-Ref N Paired N   UCIQE Before   UCIQE After   UIQM Before   UIQM After     PSNR     SSIM
+------------------------------------------------------------------------------------------------------------------------------------
+Model 1         130      218         4.8264        5.7979        0.5900       0.6031  26.1530   0.8544
+Model 2         130      218         4.8264        6.0396        0.5900       0.6297  26.5912   0.8592
+Model 3         130      218         4.8264        6.4122        0.5900       0.6757  23.7551   0.8639
+====================================================================================================================================
+PSNR/SSIM are computed on a fixed held-out paired split from EUVP trainA/trainB (seed=42, val_ratio=0.1).
+UCIQE/UIQM are computed on the EUVP validation folder as before/after no-reference metrics.
