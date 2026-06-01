@@ -1,0 +1,6 @@
+Model: model3_final
+Loss: 0.70 * L1 + 0.25 * Edge + 0.05 * Color
+Best UCIQE: 6.185121
+Best checkpoint: C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\checkpoints\model3_final_l1_700_edge_250_color_050\model3_final_best.pth
+Final checkpoint: C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\checkpoints\model3_final_l1_700_edge_250_color_050\model3_final_final.pth
+Metrics CSV: C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\logs\model3_final_l1_700_edge_250_color_050\model3_final_epoch_metrics.csv

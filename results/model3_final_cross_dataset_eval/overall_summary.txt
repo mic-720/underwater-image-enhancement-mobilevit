@@ -1,0 +1,113 @@
+Model 3 Cross-Dataset Evaluation Summary
+========================================
+Checkpoint: C:\Users\ASUS\Desktop\FINAL FOLDER\clean_repo\checkpoints\model3_final_l1_700_edge_250_color_050\model3_final_best.pth
+
+Dataset : EUVP
+Subset  : validation_no_ref + held_out_paired_split
+No-Ref N: 130
+Paired N: 218
+UCIQE   : 4.8264 -> 6.1851
+UIQM    : 0.5900 -> 0.6301
+PSNR    : 20.7324 -> 24.5002
+SSIM    : 0.8300 -> 0.8704
+Notes   : PSNR/SSIM use fixed paired split from EUVP trainA/trainB with seed=42,val_ratio=0.1
+
+Dataset : UIEB
+Subset  : raw-890
+No-Ref N: 890
+Paired N: 890
+UCIQE   : 4.3888 -> 5.4617
+UIQM    : 0.5082 -> 0.5263
+PSNR    : 17.5557 -> 17.2950
+SSIM    : 0.7664 -> 0.7770
+Notes   : Full-reference and no-reference metrics on UIEB raw-890
+
+Dataset : UIEB
+Subset  : challenging-60
+No-Ref N: 60
+Paired N: 0
+UCIQE   : 3.1536 -> 4.3582
+UIQM    : 0.4229 -> 0.4559
+PSNR    : N/A
+SSIM    : N/A
+Notes   : No reference images available for PSNR/SSIM on challenging-60
+
+Dataset : RUIE
+Subset  : UCCS
+No-Ref N: 300
+Paired N: 0
+UCIQE   : 1.9408 -> 3.5590
+UIQM    : 0.3297 -> 0.3826
+PSNR    : N/A
+SSIM    : N/A
+Notes   : No reference images available for PSNR/SSIM on RUIE
+
+Dataset : RUIE
+Subset  : UIQS
+No-Ref N: 3630
+Paired N: 0
+UCIQE   : 2.1968 -> 4.0333
+UIQM    : 0.3604 -> 0.4057
+PSNR    : N/A
+SSIM    : N/A
+Notes   : No reference images available for PSNR/SSIM on RUIE
+
+Dataset : RUIE
+Subset  : UTTS/pic_A
+No-Ref N: 60
+Paired N: 0
+UCIQE   : 3.0586 -> 3.8262
+UIQM    : 0.5938 -> 0.5866
+PSNR    : N/A
+SSIM    : N/A
+Notes   : No reference images available for PSNR/SSIM on RUIE
+
+Dataset : RUIE
+Subset  : UTTS/pic_B
+No-Ref N: 60
+Paired N: 0
+UCIQE   : 2.3605 -> 3.9362
+UIQM    : 0.4054 -> 0.4788
+PSNR    : N/A
+SSIM    : N/A
+Notes   : No reference images available for PSNR/SSIM on RUIE
+
+Dataset : RUIE
+Subset  : UTTS/pic_C
+No-Ref N: 60
+Paired N: 0
+UCIQE   : 2.1450 -> 3.9376
+UIQM    : 0.3614 -> 0.4345
+PSNR    : N/A
+SSIM    : N/A
+Notes   : No reference images available for PSNR/SSIM on RUIE
+
+Dataset : RUIE
+Subset  : UTTS/pic_D
+No-Ref N: 60
+Paired N: 0
+UCIQE   : 2.1729 -> 3.6709
+UIQM    : 0.3946 -> 0.4637
+PSNR    : N/A
+SSIM    : N/A
+Notes   : No reference images available for PSNR/SSIM on RUIE
+
+Dataset : RUIE
+Subset  : UTTS/pic_E
+No-Ref N: 60
+Paired N: 0
+UCIQE   : 2.2349 -> 4.4690
+UIQM    : 0.3417 -> 0.4156
+PSNR    : N/A
+SSIM    : N/A
+Notes   : No reference images available for PSNR/SSIM on RUIE
+
+Dataset : RUIE
+Subset  : OVERALL
+No-Ref N: 4230
+Paired N: 0
+UCIQE   : 2.1926 -> 3.9950
+UIQM    : 0.3624 -> 0.4090
+PSNR    : N/A
+SSIM    : N/A
+Notes   : No reference images available for PSNR/SSIM on RUIE
